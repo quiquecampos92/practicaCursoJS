@@ -1,0 +1,30 @@
+#!/bin/sh
+
+commit_msg_file=$1
+
+commit_msg=$(cat $commit_msg_file)
+
+# Expresión regular para verificar el formato del mensaje de commit
+commit_msg_regex='^MOTIVO DEL COMMIT: .+\nIMPLEMENTACIÓN: .+$'
+
+# Expresión regular para caracteres extraños
+invalid_chars_regex='[áâàéèêíìîóòôúùû]'
+
+# Verificar si el mensaje de commit cumple con el formato esperado
+if ! [[ $commit_msg =~ $commit_msg_regex ]]; then
+  echo "Error: El formato del mensaje de commit es incorrecto."
+  echo "Debe seguir el formato:\nMOTIVO DEL COMMIT: <título>\nIMPLEMENTACIÓN: <explicación>"
+  exit 1
+fi
+
+# Buscar archivos nuevos o modificados en el commit
+files=$(git diff --cached --name-status | awk '$1 != "D" { print $2 }')
+
+# Verificar caracteres extraños en los archivos
+for file in $files; do
+  if grep -q $invalid_chars_regex $file; then
+    echo "Error: El archivo $file contiene caracteres extraños."
+    exit 1
+  fi
+done
+

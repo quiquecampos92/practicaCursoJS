@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Este script se ejecutará después de un checkout
+
+# Comprobamos si se ha hecho un checkout que involucra cambios en los archivos package.json o package-lock.json
+if [ "$1" = "-m" ] || [ "$1" = "-f" ]; then
+  # Instalamos las dependencias nuevamente
+  npm install
+fi

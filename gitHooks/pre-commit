@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Este script se ejecutará antes de realizar un commit
+
+# Ejecutar ESLint con el plugin eslint-plugin-html en los archivos HTML
+npx eslint --ext .html --plugin html .
+
+# Captura el código de salida del comando anterior
+exit_code=$?
+
+# Comprueba si hubo errores de ESLint
+if [ $exit_code -ne 0 ]; then
+  echo "Error: Se encontraron problemas de formato en los archivos HTML."
+  echo "Corrige los problemas antes de realizar el commit."
+  exit 1
+fi
