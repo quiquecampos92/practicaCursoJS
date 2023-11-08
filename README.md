@@ -1,121 +1,169 @@
-# [HTML5 Boilerplate](https://html5boilerplate.com/)
+# Desarrollo de la práctica
 
-[![Build status](https://github.com/h5bp/html5-boilerplate/workflows/Build%20status/badge.svg)](https://github.com/h5bp/html5-boilerplate/actions?query=workflow%3A%22Build+status%22+branch%3Amain)
-[![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/h5bp/html5-boilerplate/blob/main/LICENSE.txt)
-[![NPM Downloads](https://img.shields.io/npm/dt/html5-boilerplate.svg)](https://www.npmjs.com/package/html5-boilerplate)
-[![github-stars-image](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=github%20stars)](https://github.com/h5bp/html5-boilerplate)
+## Introducción a Git
 
-HTML5 Boilerplate is a professional front-end template for building
-fast, robust, and adaptable web apps or sites.
+Git es una herramienta fundamental en el mundo del desarrollo de software, revolucionando la forma en que gestionamos el control de versiones de nuestros proyectos. Permite a equipos de desarrollo colaborar de manera eficiente, mantener un historial preciso de cambios y revertir a versiones anteriores con facilidad.
 
-This project is the product of over 10 years of iterative development and
-community knowledge. It does not impose a specific development
-philosophy or framework, so you're free to architect your code in the
-way that you want.
+## Metodología GitFlow: Organizando Nuestro Flujo de Trabajo
 
-- [Homepage](https://html5boilerplate.com/)
-- [Source Code](https://github.com/h5bp/html5-boilerplate)
+En nuestro enfoque de desarrollo, adoptamos la metodología GitFlow. Esta metodología proporciona una estructura organizada y clara para gestionar el ciclo de vida del código fuente. Se basa en la creación de diversas ramas para distintos propósitos, lo que nos permite llevar a cabo desarrollos de manera más segura y controlada.
 
-## About This Repository
+## Ramas Clave en GitFlow: Developer y Main
 
-This repository is where HTML5-Boilerplate is authored. Some of the tools,
-files and processes that you see here are solely for the _production_ of
-HTML5 Boilerplate and are not _part_ of HTML5 Boilerplate. For one example, the
-[gulpfile.mjs](https://github.com/h5bp/html5-boilerplate/blob/main/gulpfile.mjs)
-script is used to _build_ the project. It's not part of the project itself.
+En GitFlow, al menos dos ramas principales coexisten en nuestro repositorio: `developer` y `main`. La rama de `developer` es donde se fusionan las características nuevas y las correcciones de errores antes de ser desplegadas. Esto garantiza que las nuevas funcionalidades sean probadas y se integren de manera adecuada. La rama `main` es la encargada de llevar a producción el proyecto.
 
-The project we publish is represented by the contents of the `/dist/`
-folder. Everything else in this repository is used to author the project.
+## Ramas Especializadas: Feature, Test y Hotfix
 
-Think of it this way, in the same way that you don't clone [vuejs/core](https://github.com/vuejs/core)
-to create a Vue.js app, you don't need to clone this repository to start a new
-site or app based on HTML5 Boilerplate.
+Además de las ramas principales, GitFlow nos anima a utilizar otras ramas especializadas. Las ramas de `feature/` nos permiten trabajar en nuevas funcionalidades de manera aislada, lo que facilita el seguimiento y prueba de estas características. Estas ramas no tienen porque salir de una principal llamada feature, simplemente pueden salir de developer, pero en el nombre indicar `feature/ejemplo`. Las ramas de `test` sirven para realizar pruebas rigurosas antes de la fusión con `main`. Estas serán hijas de developer y solo aparecerán cuando las ramas de features estén fusionadas con developer. Después de probar los test se fusiona con main y se deben eliminar. Por último, las ramas de `hotfix` se centran en la corrección de errores críticos en producción de forma rápida y efectiva.
 
-So, if you're looking for a quick start template to build a web site or
-application, look at the options in the
-[Quick Start](https://github.com/h5bp/html5-boilerplate#quick-start) section of this document.
+## Rama para la documentación: gh_pages
 
-If you want to help us _improve_ HTML5 Boilerplate then you can start with the documentation [here](.github/CONTRIBUTING.md), which includes steps to clone this repo in order to get it set up for development.
+Por último, se creará una rama para subir la documentación del proceso del proyecto denominada `gh_pages` la cual será la que se suba a github pages.
 
-## Quick Start
+## Beneficios de GitFlow en Nuestro Desarrollo
 
-Choose one of the following options:
+La adopción de GitFlow en nuestro proceso de desarrollo nos proporciona una serie de ventajas significativas. Nos brinda un mayor control sobre el flujo de trabajo, facilita la colaboración entre equipos y garantiza una mayor estabilidad en el ciclo de vida del código fuente.
 
-- Using the [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
-  script, instantly fetch the latest npm published package (or any version
-  available on npm) with `npx`, `npm init` or `yarn create` without having to
-  install any dependencies. Running the following `npx` command installs the
-  latest version into a folder called `new-site`
+## Pasos a seguir por los usuarios
 
-  ```bash
-  npx create-html5-boilerplate new-site
-  cd new-site
-  npm install
-  npm run start
-  ```
+### USUARIO 1
 
-- Using our new [Template Repository](https://github.com/h5bp/html5-boilerplate-template)
-  create a new GitHub repository based on the latest code from the main branch of HTML5
-  Boilerplate.
+1. Crea repositorio en blanco
+   ![Imagen](src/imágenes/Imagen%201.jpg)
 
-- Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
-  or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting
-  `node_modules/html5-boilerplate/dist` folder represents the latest version of
-  the project for end users. Depending on what you want to use and how you want
-  to use it, you may have to copy and paste the contents of that folder into
-  your project directory.
+2. Clonamos el repositorio indicado en la práctica `boilerplate` en local y modificamos para crear la web como se indica en la práctica. Así cuando subamos a remoto ya tiene el contenido principal.
+   ![Imagen](src/imágenes/Imagen%202.jpg)
 
-- Download the latest stable release from
-  [here](https://github.com/h5bp/html5-boilerplate/releases/download/v8.0.0/html5-boilerplate_v8.0.0.zip). This zip file is a
-  snapshot of the `dist` folder. On Windows, Mac and from the file manager on
-  Linux unzipping this folder will output to a folder named something like
-  `html5-boilerplate_v8.0.0`. From the command-line, you will need to create a
-  folder and unzip the contents into that folder.
+3. Asociamos el remoto a local con git remote, después hacemos los commits del proyecto para poder subirlo y realizamos el push para subirlo a remoto. También se podría hacer el git remote después de los commits y antes del push.
+   ![Imagen](src/imágenes/Imagen%203.jpg)
 
-  ```bash
-  mkdir html5-boilerplate
-  unzip html5-boilerplate*.zip -d html5-boilerplate
-  ```
+4. Se crea la rama developer ya que la main está creada por defecto.
+      ![Imagen](src/imágenes/Imagen%204.jpg)
 
-## Features
+5. Creamos la estructura de la web en la rama developer para que al crear las otras ramas tengan la base.
+      ![Imagen](src/imágenes/Imagen%205.jpg)
 
-- A finely-tuned starter template: Reap the benefits of 10 years of analysis,
-  research and experimentation by over 200 contributors.
-- Designed with progressive enhancement in mind.
-- Includes:
-  - Placeholder Open Graph elements and attributes.
-  - An example package.json file with [WebPack](https://webpack.js.org/) commands
-    built in to jumpstart application development.
-  - Placeholder CSS Media Queries.
-  - Useful CSS helper classes.
-  - Default print styles, performance optimized.
-  - "Delete-key friendly." Easy to strip out parts you don't need.
-  - Extensive documentation.
 
-## Browser Support
+### USUARIO 2
 
-HTML5-Boilerplate supports the latest, stable releases of all major browsers.
+6. El usuario 2 se posiciona en la rama developer
+      ![Imagen](src/imágenes/Imagen%206.jpg)
 
-Check the `default` configuration from [Browserslist](https://browsersl.ist/#q=defaults)
-for more details on browsers and versions covered.
+7. Crea las dos ramas pertinentes
+      ![Imagen](src/imágenes/Imagen%207.jpg)
 
-## Documentation
 
-Take a look at the [documentation table of contents](docs/TOC.md). This
-documentation is bundled with the project which makes it available for offline
-reading and provides a useful starting point for any documentation you want to
-write about your project.
+### USUARIO 3
 
-## Contributing
+8. El usuario 3 se posiciona en la rama developer
+      ![Imagen](src/imágenes/Imagen%208.jpg)
 
-Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
-welcome to [contribute](.github/CONTRIBUTING.md). However, if you decide to get
-involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
+9.  Crea la rama pertinente
+       ![Imagen](src/imágenes/Imagen%209.jpg)
 
-- [Bug reports](.github/CONTRIBUTING.md#bugs)
-- [Feature requests](.github/CONTRIBUTING.md#features)
-- [Pull requests](.github/CONTRIBUTING.md#pull-requests)
+10. Al final las ramas creadas quedan así:
+    a. Main
+    b. Developer
+       i. Feature/contenidoHTML
+       ii. Feature/atributosHTML
+       iii. Feature/estilosCSS
 
-## License
+### USUARIO 1
 
-The code is available under the [MIT license](LICENSE.txt).
+11. Una vez creadas las ramas se suben a remoto para que se guarden y los demás usuarios puedan disponer de ellas.
+       ![Imagen](src/imágenes/Imagen%2011.jpg)
+
+
+### USUARIO 3
+
+12. Una vez creadas las ramas se suben a remoto para que se guarden y los demás usuarios puedan disponer de ellas.
+       ![Imagen](src/imágenes/Imagen%2012.jpg)
+
+
+### USUARIO 2
+
+13. Una vez creadas las ramas se suben a remoto para que se guarden y los demás usuarios puedan disponer de ellas.
+       ![Imagen](src/imágenes/Imagen%2013.jpg)
+
+14. Cada usuario ha subido las respectivas ramas a remoto para que todos puedan disponer de ellas.
+15. Ahora deben implementar el código en su rama y subirlo.
+
+### USUARIO 2
+
+16. Modifica el contenido y añade un commit en la rama feature/contenidoHTML
+       ![Imagen](src/imágenes/Imagen%2016.jpg)
+
+17. Modifica los atributos y añade un commit en la rama feature/atributosHTML
+       ![Imagen](src/imágenes/Imagen%2017.jpg)
+
+
+### USUARIO 3
+
+18. Modifica los estilos CSS y añade un commit en la rama feature/estilosCSS
+       ![Imagen](src/imágenes/Imagen%2018.jpg)
+
+
+### USUARIO 2
+
+19. Cada usuario sube las modificaciones a remoto con push
+        ![Imagen](src/imágenes/Imagen%2019a.jpg)
+        ![Imagen](src/imágenes/Imagen%2019b.jpg)
+
+
+
+### USUARIO 3
+
+20. Crea rama test sobre developer
+       ![Imagen](src/imágenes/Imagen%2020.jpg)
+
+21. Fusionamos la rama feature/atributosHTML
+       ![Imagen](src/imágenes/Imagen%2021.jpg)
+
+22. Fusionamos la rama feature/contenidoHTML
+       ![Imagen](src/imágenes/Imagen%2022.jpg)
+
+23. Fusionamos la rama feature/estiloCSS. Nos sale un conflicto y lo solucionamos guardando ambos cambios (Aceptar ambos cambios).
+       ![Imagen](src/imágenes/Imagen%2023.jpg)
+
+24. Commit en la rama developer para guardar el cambio del archivo
+       ![Imagen](src/imágenes/Imagen%2024.jpg)
+
+
+### USUARIO 1
+
+25. Ahora fusionamos la rama developer con la main
+       ![Imagen](src/imágenes/Imagen%2025.jpg)
+
+26. Etiqueta la rama main con la etiqueta “v1.0”
+       ![Imagen](src/imágenes/Imagen%2026.jpg)
+
+27. Aquí se puede ver como existe la etiqueta
+       ![Imagen](src/imágenes/Imagen%2027.jpg)
+
+28. Procedemos a crear los Hooks
+29. El ususario 1, como es el encargado empieza a crear hooks
+    a. Automatización de la instalación del proyecto. Cuando se realice un clonado/checkout del proyecto, se deberá recrear la carpeta de node_modules del proyecto.
+       ![Imagen](src/imágenes/Imagen%2029a.jpg)
+
+    b. Otorgamos permisos para poder acceder
+       ![Imagen](src/imágenes/Imagen%2029b.jpg)
+
+30. Verificación del formato de mensaje de commit.
+       ![Imagen](src/imágenes/Imagen%2030a.jpg)
+
+    Otorga permisos
+       ![Imagen](src/imágenes/Imagen%2030b.jpg)
+
+    Formato:
+        MOTIVO DEL COMMIT: <título>
+        IMPLEMENTACIÓN: <explicación>
+31. Previo a realizar el commit, se verificará el correcto formato en los ficheros html. Para ello, se ejecutará el linter eslint (suponiendo que el plugin ya esta instalado).
+       ![Imagen](src/imágenes/Imagen%2031.jpg)
+
+32. Permisos
+       ![Imagen](src/imágenes/Imagen%2032.jpg)
+
+33. Se crea una carpeta para poder subir a github y que todos puedan disponer de ellos
+       ![Imagen](src/imágenes/Imagen%2033.jpg)
+
+
